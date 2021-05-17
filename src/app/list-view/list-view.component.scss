@@ -1,0 +1,19 @@
+@import "../../assets/utils.scss";
+
+.loading {
+  padding: 2rem;
+  flex-direction: column;
+}
+
+.loaded {
+  padding-top: 1.5rem;
+
+  .tools {
+    padding: 0 1rem 1rem;
+    border-bottom: 1px solid lightgray;
+  }
+
+  .table {
+    width: 100%;
+  }
+}

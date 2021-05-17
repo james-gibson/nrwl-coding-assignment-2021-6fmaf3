@@ -1,0 +1,42 @@
+<mat-card class="mat-elevation-z8 card">
+
+  <mat-card-header>
+    <mat-card-title>Ticket Information</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="editTicketForm" novalidate [hidden]="loading" (ngSubmit)="onSubmit()">
+      <mat-form-field class="form-field">
+        <input matInput placeholder="Ticket Name" formControlName="name">
+        <mat-error *ngIf="editTicketForm.controls['name'].hasError('required')">
+          Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <mat-label>Assignee</mat-label>
+        <mat-select placeholder="Assignee" formControlName="assigneeId">
+          <mat-option>Unassigned</mat-option>
+          <mat-option *ngFor="let user of users | async" [value]="user.id">
+            {{ user.name }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="editTicketForm.controls['assigneeId'].hasError('required')">
+          User is <strong>strongly</strong> suggested
+        </mat-error>
+      </mat-form-field>
+
+      <span class="flex-row start form-field checkbox">
+
+        <mat-checkbox formControlName="completed">Completed</mat-checkbox>
+      </span>
+      <div class="flex-row start btn-group">
+        <mat-card-actions>
+          <button mat-raised-button color="secondary" [routerLink]="['/']">Cancel</button>
+        </mat-card-actions>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" type="submit">Submit</button>
+        </mat-card-actions>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

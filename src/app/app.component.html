@@ -1,8 +1,6 @@
-<h2>Tickets</h2>
-
-<ul>
-  <li *ngFor="let t of tickets|async">
-    Ticket: {{t.id}}, {{t.description}}
-  </li>
-</ul>
-
+<header class="flex-center">
+  <h1>Tickets-R-Us!</h1>
+</header>
+<main>
+  <router-outlet></router-outlet>
+</main>

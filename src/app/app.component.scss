@@ -1,0 +1,24 @@
+@import '~@angular/material/theming';
+
+$app-primary: mat-palette($mat-pink);
+$app-accent:  mat-palette($mat-green);
+$app-warn:    mat-palette($mat-indigo);
+$primary: mat-color($app-primary);
+$accent: mat-color($app-accent);
+$warn: mat-color($app-warn);
+
+header {
+  background-color: $primary;
+  color: white;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+
+  h1 {
+    margin-bottom: 0;
+  }
+}
+
+main {
+  max-width: 80%;
+  margin: 0 auto;
+}
